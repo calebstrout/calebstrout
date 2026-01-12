@@ -1,227 +1,83 @@
-import {
-  SiTypescript,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiGraphql,
-  SiPython,
-  SiCplusplus,
-  SiLinux,
-  SiGnubash,
-  SiNumpy,
-  SiJavascript,
-  SiUnity,
-} from 'react-icons/si';
-import { TbBrandCSharp } from 'react-icons/tb';
-import { FaC } from 'react-icons/fa6';
+import { projects, tagMeta } from '../../data/projects';
 import { RevealOnScroll } from '../RevealOnScroll';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ExternalLink, Github } from 'lucide-react';
+
 export const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="min-h-screen flex items-center justify-center py-20"
-    >
+    <section id="projects" className="py-24 px-4 relative">
       <RevealOnScroll>
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent text-center">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent text-center">
             Featured Projects
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <a
-              href="https://www.vadl.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-white/30 hover:shadow-[0_2px_8px_rgba(255,255,255,0.1)] transition-all">
-                <h3 className="text-xl font-bold mb-2">
-                  🚀 Vanderbilt Aerospace Design Laboratory
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Integrated sensors and real-time data collection for a soil
-                  collection payload of a 4,500 ft apogee rocket as part of NASA
-                  ULSI
-                </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-4">
-                  {[
-                    { name: 'C', color: '#A8B9CC', icon: FaC },
-                    { name: 'Python', color: '#3776AB', icon: SiPython },
-                    { name: 'Linux', color: '#F4BC00', icon: SiLinux },
-                  ].map(({ name, color, icon: Icon }) => (
-                    <span
-                      key={name}
-                      className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
-                      style={{
-                        backgroundColor: `${color}20`,
-                        color: color,
-                        '--shadow-color': `${color}66`,
-                      }}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, key) => (
+              <div
+                key={key}
+                className="group bg-card rounded-xl overflow-hidden shadow-xs card-hover border border-white/10 hover:border-white/30 hover:-translate-y-1 transition-all"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+
+                <div className="p-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag) => {
+                      const meta = tagMeta[tag] || { color: '#6b7280' };
+                      const Icon = meta.icon;
+                      const color = meta.color || '#6b7280';
+                      return (
+                        <span
+                          key={tag}
+                          className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
+                          style={{
+                            backgroundColor: `${color}20`,
+                            color: color,
+                            '--shadow-color': `${color}66`,
+                          }}
+                        >
+                          {Icon ? <Icon className="w-4 h-4" /> : null}
+                          {tag}
+                        </span>
+                      );
+                    })}
+                  </div>
+
+                  <div className="flex items-center justify-between mb-1">
+                    <h3 className="text-xl font-semibold">{project.title}</h3>
+                    <Link
+                      to={`/projects/${project.slug || project.id}`}
+                      className="text-foreground/60 hover:text-primary"
                     >
-                      <Icon className="w-4 h-4" />
-                      {name}
-                    </span>
-                  ))}
+                      <ArrowRight />
+                    </Link>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <div className="flex space-x-3">
+                      {project.infoUrl && project.infoUrl !== '#' ? (
+                        <a
+                          href={project.infoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                        >
+                          <ExternalLink size={20} />
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </a>
-            <a
-              href="https://github.com/vanderbiltrobotics"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-white/30 hover:shadow-[0_2px_8px_rgba(255,255,255,0.1)] transition-all">
-                <h3 className="text-xl font-bold mb-2">
-                  ⚙️ Autonomous Lunar Robot
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Leveraging SLAM algorithms to optimize image processing and
-                  detection algorithms for an Autonomous Lunar Robot and Street
-                  Obstacle Robot as part of Vanderbilt Robotics
-                </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-4">
-                  {[
-                    { name: 'Python', color: '#3776AB', icon: SiPython },
-                    { name: 'C++', color: '#00599C', icon: SiCplusplus },
-                    { name: 'Bash', color: '#4EAA25', icon: SiGnubash },
-                    { name: 'Numpy', color: '#03688C', icon: SiNumpy },
-                    { name: 'Linux', color: '#F4BC00', icon: SiLinux },
-                  ].map(({ name, color, icon: Icon }) => (
-                    <span
-                      key={name}
-                      className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
-                      style={{
-                        backgroundColor: `${color}20`,
-                        color: color,
-                        '--shadow-color': `${color}66`,
-                      }}
-                    >
-                      <Icon className="w-4 h-4" />
-                      {name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </a>
-            <a
-              href="https://github.com/SPACE-at-Berkeley/SUITS-2023_2024"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-white/30 hover:shadow-[0_2px_8px_rgba(255,255,255,0.1)] transition-all">
-                <h3 className="text-xl font-bold mb-2">🥽 AR EVA Simulaion </h3>
-                <p className="text-gray-300 mb-4">
-                  Collaborated with students at UC Berekley to create an
-                  Augmented Reality Extravehicular Activity Simulation, being
-                  one of 10 teams selected. Including an interactive head
-                  mounted display and hardware in the loop. Was one of 10 teams
-                  to compete as part of the 2023-2024 NASA S.U.I.T.S Challenge
-                </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-4">
-                  {[
-                    { name: 'C#', color: '#9179E4', icon: TbBrandCSharp },
-                    {
-                      name: 'JavaScript',
-                      color: '#F0DB4F',
-                      icon: SiJavascript,
-                    },
-                    { name: 'Unity', color: '#4a5870', icon: SiUnity },
-                  ].map(({ name, color, icon: Icon }) => (
-                    <span
-                      key={name}
-                      className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
-                      style={{
-                        backgroundColor: `${color}20`,
-                        color: color,
-                        '--shadow-color': `${color}66`,
-                      }}
-                    >
-                      <Icon className="w-4 h-4" />
-                      {name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </a>
-            <a
-              href="https://github.com/coderaceapp/coderace"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-white/30 hover:shadow-[0_2px_8px_rgba(255,255,255,0.1)] transition-all">
-                <h3 className="text-xl font-bold mb-2">
-                  🏎️ Coderace.io (VandyHacks 2024)
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Interactive website that makes practicing data structures and
-                  algorithms style questions fun and engaging through
-                  head-to-head competition
-                </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-4">
-                  {[
-                    {
-                      name: 'TypeScript',
-                      color: '#3178C6',
-                      icon: SiTypescript,
-                    },
-                    { name: 'Node', color: '#339933', icon: SiNodedotjs },
-                    { name: 'Next.js', color: '#FFFFFF', icon: SiNextdotjs },
-                    { name: 'GraphQL', color: '#e535ab', icon: SiGraphql },
-                  ].map(({ name, color, icon: Icon }) => (
-                    <span
-                      key={name}
-                      className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
-                      style={{
-                        backgroundColor: `${color}20`,
-                        color: color,
-                        '--shadow-color': `${color}66`,
-                      }}
-                    >
-                      <Icon className="w-4 h-4" />
-                      {name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </a>
-            <a
-              href="https://github.com/colinstrout/LFRE"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-white/30 hover:shadow-[0_2px_8px_rgba(255,255,255,0.1)] transition-all">
-                <h3 className="text-xl font-bold mb-2">
-                  🚂 Rocket Engine Control System
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Programmed the control and combustion algorithms of a 10-pound
-                  thrust student-made liquid rocket fuel engine, including
-                  pressure analytics
-                </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-4">
-                  {[
-                    { name: 'Python', color: '#3776AB', icon: SiPython },
-                    { name: 'C++', color: '#00599C', icon: SiCplusplus },
-                  ].map(({ name, color, icon: Icon }) => (
-                    <span
-                      key={name}
-                      className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
-                      style={{
-                        backgroundColor: `${color}20`,
-                        color: color,
-                        '--shadow-color': `${color}66`,
-                      }}
-                    >
-                      <Icon className="w-4 h-4" />
-                      {name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </a>
+            ))}
           </div>
         </div>
       </RevealOnScroll>

@@ -31,8 +31,8 @@ export const Contact = () => {
     >
       <RevealOnScroll>
         <div className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent text-center">
-            Get In Touch
+          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-orange-400 to-red-600 bg-clip-text text-transparent text-center">
+            Contact Me!
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="relative">
@@ -79,7 +79,7 @@ export const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-indigo-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+              className="w-full bg-orange-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
             >
               Send Message
             </button>
@@ -87,24 +87,16 @@ export const Contact = () => {
         </div>
         <div className="flex justify-center gap-8 mt-10 text-3xl text-white">
           <a
-            href="https://github.com/colinstrout"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-purple-500 transition"
-          >
-            <FaGithub />
-          </a>
-          <a
             href="https://www.linkedin.com/in/colinstrout/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-500 transition"
+            className="hover:text-yellow-500 transition"
           >
             <FaLinkedin />
           </a>
           <a
             href="mailto:colin.j.strout@gmail.com"
-            className="hover:text-cyan-400 transition"
+            className="hover:text-red-500 transition"
           >
             <FaEnvelope />
           </a>
