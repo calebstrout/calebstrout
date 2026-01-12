@@ -156,8 +156,9 @@ export const Experience = () => {
                   </h4>
                 </a>
                 <p className="text-center text-gray-300">
-                  Developed Firmware for biomedical sensors with applications in
-                  heart and respiratory monitoring
+                  Designed, analyzed, and tested air brake payload system
+                  integrated into rockets in order to control apogee to specific
+                  altitudes.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center mt-4">
                   {[
