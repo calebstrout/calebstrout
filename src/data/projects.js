@@ -70,7 +70,7 @@ export const projects = [
         url: 'https://www.youtube.com/watch?v=x1K_hM7DuNE',
       },
     ],
-    githubUrl: 'https://github.com/VADL-24-45/Apogee-Control/tree/master',
+    githubUrl: 'https://github.com/VADL-24-45/Apogee-Control/tree/main',
   },
   {
     id: 2,
