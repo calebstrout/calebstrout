@@ -122,7 +122,7 @@ export const projects = [
               'Mesh Analysis and Air Flow Analysis of Vehicle with ACS using ANSYS Fluent',
           },
           {
-            src: '/vehicle-sim.png',
+            src: '/rocket-py.png',
             caption:
               'Flight Trajectory Analysis with varying cant and wind speeds using RocketPy',
           },
