@@ -89,7 +89,7 @@ export const projects = [
         items: [
           {
             src: '/launch.png',
-            caption: '',
+            caption: '25-26 VADL Subscale Vehicle on launch pad ready for launch',
           },
           {
             src: '/mission.png',
