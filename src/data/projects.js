@@ -59,7 +59,7 @@ export const projects = [
     sections: [
       {
         type: 'paragraph',
-        text: 'In the Summer of 2025, I was tasked on a team of 4 engineers to design, manufacture and test a system that has the ability to control a rocket ascent to a specified goal apogee to account for variances in weather and motor dynamics. The ACS consists of four external NACA 0012 airfoil fins that are rotated from a servo motor in a manner to only induce drag on the rocket. A Raspberry Pi 4 connected to a VectorNav IMU, collected altitude and velocity data in real time to input into a RK4 apogee prediction model. Once 50 data points (logged at ~100 Hz) resulted in predicted apogee values greater than the goal apogee, the fins are deployed to a desired angle. The system was tested on four 4" diameter rockets that were all 68" long with nominal apogees between 850 to 965 ft depending on motor hardware used. The goal apogee for the summer was 750 ft which all flights came within 5% of. Wind tunnel and CFD testing verified the induced drag of the fins in reference to the nose to be 5 for 90° deployment and 3.5 for 45° deployment. ',
+        text: 'In the Summer of 2025, I was tasked on a team of 4 engineers to design, manufacture and test a system that has the ability to control a rocket ascent to a specified goal apogee to account for variances in weather and motor dynamics. The ACS consists of four external NACA 0012 airfoil fins that are rotated from a servo motor in a manner to only induce drag on the rocket. A Raspberry Pi 4 connected to a VectorNav IMU, collected altitude and velocity data in real time to input into a RK4 apogee prediction model. Once 50 data points (logged at approximately 100 Hz) resulted in predicted apogee values greater than the goal apogee, the fins are deployed to a desired angle. The system was tested on four 4" diameter rockets that were all 68" long with nominal apogees between 850 to 965 ft depending on motor hardware used. The goal apogee for the summer was 750 ft which all flights came within 5% of. Wind tunnel and CFD testing verified the induced drag of the fins in reference to the nose to be 5 for 90° deployment and 3.5 for 45° deployment. ',
       },
     ],
     tags: ['Python', 'MATLAB', 'Linux', 'ANSYS', 'Solidworks', 'Raspberry Pi'],
@@ -89,7 +89,8 @@ export const projects = [
         items: [
           {
             src: '/launch.png',
-            caption: '25-26 VADL Subscale Vehicle on launch pad ready for launch',
+            caption:
+              '25-26 VADL Subscale Vehicle on launch pad ready for launch',
           },
           {
             src: '/mission.png',
