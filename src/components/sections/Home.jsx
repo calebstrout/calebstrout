@@ -14,7 +14,7 @@ export const Home = () => {
             </h1>
 
             <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-md md:max-w-none">
-              I am currently a Junior in college majoring in Mechanical
+              I am currently a senior in college majoring in Mechanical
               Engineering with a focus area in Aerospace Engineering at
               Vanderbilt University. My goal is to eventually use my experience
               and interests in Aerospace Design, Propulsion, and Testing to

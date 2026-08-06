@@ -10,9 +10,15 @@ import {
   GitOriginal,
 } from 'devicons-react';
 
+import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import solidworksImg from '../../assets/solidworks.svg';
 import whisper from '../../assets/whisper.svg';
 import vadl from '../../assets/vadl.png';
+import ga from '../../assets/General_Atomics_Aeronautical_Systems_logo.svg';
+import nx from '../../assets/Siemens-logo.svg';
+import ni from '../../assets/ni.svg';
 
 import { RevealOnScroll } from '../RevealOnScroll';
 
@@ -30,6 +36,16 @@ export const Experience = () => {
     { name: 'Linux', color: '#F4BC00', icon: LinuxOriginal },
     { name: 'Raspberry Pi', color: '#C51A4A', icon: RaspberrypiOriginal },
     {
+      name: 'Excel',
+      color: '#217346',
+      icon: (props) => <FontAwesomeIcon icon={faFileExcel} {...props} />,
+    },
+    {
+      name: 'LabVIEW',
+      color: '#FFB000',
+      icon: (props) => <img src={ni} alt="NI LabVIEW" {...props} />,
+    },
+    {
       name: 'SolidWorks',
       color: '#FF0000',
       icon: (props) => <img src={solidworksImg} alt="SolidWorks" {...props} />,
@@ -38,6 +54,11 @@ export const Experience = () => {
       name: 'CATIA',
       color: '#0F52B9',
       icon: (props) => <img src={solidworksImg} alt="SolidWorks" {...props} />,
+    },
+    {
+      name: 'Siemens NX',
+      color: '#009999',
+      icon: (props) => <img src={nx} alt="NX" {...props} />,
     },
   ];
   return (
@@ -118,6 +139,59 @@ export const Experience = () => {
               <h3 className="text-xl font-bold mb-4">💼 Work Experience</h3>
               <div className="p-2 rounded-xl border-white/10 border hover:-translate-y-1  hover:border-white/30 transition-all">
                 <a
+                  href="https://www.ga-asi.com/"
+                  target="_blank"
+                  className="flex-items-center gap-2 space-y-4 text-gray-300 text-center"
+                >
+                  <img
+                    src={ga}
+                    alt="Company logo"
+                    className="w-40 h-8 mx-auto translate-y-1"
+                  />
+                  <h4 className="font-semibold">
+                    Fuel Systems Engineer Intern at General Atomics Aeronautical
+                    Systems <br />
+                    (June 2026 - August 2026)
+                  </h4>
+                </a>
+                <p className="text-center text-gray-300">
+                  Fluid and CG analysis for Mojave STOL fuel system as well as
+                  flight analysis for YFQ-42A fuel system
+                </p>
+                <div className="flex flex-wrap gap-2 justify-center mt-4">
+                  {[
+                    { name: 'Python', color: '#3776AB', icon: PythonOriginal },
+                    { name: 'MATLAB', color: '#0076A8', icon: MatlabOriginal },
+                    {
+                      name: 'Siemens NX',
+                      color: '#009999',
+                      icon: (props) => <img src={nx} alt="NX" {...props} />,
+                    },
+                    {
+                      name: 'Excel',
+                      color: '#217346',
+                      icon: (props) => (
+                        <FontAwesomeIcon icon={faFileExcel} {...props} />
+                      ),
+                    },
+                  ].map(({ name, color, icon: Icon }) => (
+                    <span
+                      key={name}
+                      className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
+                      style={{
+                        backgroundColor: `${color}20`,
+                        color: color,
+                        '--shadow-color': `${color}66`,
+                      }}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="p-2 rounded-xl border-white/10 border hover:-translate-y-1  hover:border-white/30 transition-all">
+                <a
                   href="https://www.whisper.aero/"
                   target="_blank"
                   className="flex-items-center gap-2 space-y-4 text-gray-300 text-center"
@@ -133,10 +207,42 @@ export const Experience = () => {
                   </h4>
                 </a>
                 <p className="text-center text-gray-300">
-                  Incoming Test Engineer Intern at Whisper Aero focusing on
-                  failure testing for commerical electric leafblower, including
+                  Failure testing for commerical electric leafblowers, including
                   EVTOL propulsion systems
                 </p>
+                <div className="flex flex-wrap gap-2 justify-center mt-4">
+                  {[
+                    { name: 'Python', color: '#3776AB', icon: PythonOriginal },
+                    { name: 'MATLAB', color: '#0076A8', icon: MatlabOriginal },
+                    {
+                      name: 'SolidWorks',
+                      color: '#FF0000',
+                      icon: (props) => (
+                        <img src={solidworksImg} alt="SolidWorks" {...props} />
+                      ),
+                    },
+                    {
+                      name: 'LabVIEW',
+                      color: '#FFB000',
+                      icon: (props) => (
+                        <img src={ni} alt="NI LabVIEW" {...props} />
+                      ),
+                    },
+                  ].map(({ name, color, icon: Icon }) => (
+                    <span
+                      key={name}
+                      className="flex items-center gap-2 py-1 px-3 rounded-full text-sm transition hover:shadow-[0_2px_8px_var(--shadow-color)]"
+                      style={{
+                        backgroundColor: `${color}20`,
+                        color: color,
+                        '--shadow-color': `${color}66`,
+                      }}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {name}
+                    </span>
+                  ))}
+                </div>
               </div>
               <div className="p-2 rounded-xl border-white/10 border hover:-translate-y-1  hover:border-white/30 transition-all">
                 <a
@@ -147,7 +253,7 @@ export const Experience = () => {
                   <img
                     src={vadl}
                     alt="Company logo"
-                    className="w-12 h-12 mx-auto translate-y-1 object-contain filter invert"
+                    className="w-12 h-10 mx-auto translate-y-1 object-contain filter invert"
                   />
                   <h4 className="font-semibold">
                     Undergraduate Research Assistant
