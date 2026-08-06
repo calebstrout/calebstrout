@@ -87,7 +87,7 @@ export const Contact = () => {
         </div>
         <div className="flex justify-center gap-8 mt-10 text-3xl text-white">
           <a
-            href="https://www.linkedin.com/in/colinstrout/"
+            href="https://www.linkedin.com/in/calebstrout/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-yellow-500 transition"
@@ -95,7 +95,7 @@ export const Contact = () => {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:colin.j.strout@gmail.com"
+            href="mailto:caleb.g.strout@gmail.com"
             className="hover:text-red-500 transition"
           >
             <FaEnvelope />
